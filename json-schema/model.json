@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-cloud-automl/refs/heads/main/json-schema/model.json",
+  "title": "AutoML Model",
+  "description": "Schema for a Google Cloud AutoML model resource.",
+  "type": "object",
+  "required": ["displayName", "datasetId"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Resource name of the model."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable display name for the model."
+    },
+    "datasetId": {
+      "type": "string",
+      "description": "ID of the dataset used to train the model."
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the model was created."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the model was last updated."
+    },
+    "deploymentState": {
+      "type": "string",
+      "enum": ["DEPLOYMENT_STATE_UNSPECIFIED", "DEPLOYED", "UNDEPLOYED"],
+      "description": "Deployment state of the model."
+    },
+    "etag": {
+      "type": "string",
+      "description": "Entity tag for optimistic concurrency control."
+    }
+  }
+}

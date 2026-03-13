@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gcp": "https://cloud.google.com/automl#",
+    "AutoMLModel": "gcp:AutoMLModel",
+    "dataset": "gcp:dataset",
+    "model": "gcp:model",
+    "displayName": "gcp:displayName",
+    "datasetId": "gcp:datasetId",
+    "deploymentState": "gcp:deploymentState",
+    "payload": "gcp:payload",
+    "prediction": "gcp:prediction",
+    "score": "gcp:score",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url"
+  }
+}

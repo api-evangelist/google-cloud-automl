@@ -1,0 +1,289 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud AutoML API
+  description: >-
+    Trains and deploys custom machine learning models using Google's AutoML
+    technology with transfer learning and neural architecture search.
+  version: v1
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/automl
+servers:
+  - url: https://automl.googleapis.com/v1
+paths:
+  /projects/{projectId}/locations/{location}/datasets:
+    get:
+      operationId: listDatasets
+      summary: List datasets
+      description: Lists all datasets in the specified project and location.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with list of datasets.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  datasets:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Dataset'
+    post:
+      operationId: createDataset
+      summary: Create a dataset
+      description: Creates a new dataset for model training.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dataset'
+      responses:
+        '200':
+          description: Long-running operation for dataset creation.
+          content:
+            application/json:
+              schema:
+                type: object
+  /projects/{projectId}/locations/{location}/models:
+    get:
+      operationId: listModels
+      summary: List models
+      description: Lists all models in the specified project and location.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with list of models.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  model:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Model'
+    post:
+      operationId: createModel
+      summary: Create a model
+      description: Creates and trains a new custom model.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Model'
+      responses:
+        '200':
+          description: Long-running operation for model training.
+          content:
+            application/json:
+              schema:
+                type: object
+  /projects/{projectId}/locations/{location}/models/{modelId}:
+    get:
+      operationId: getModel
+      summary: Get a model
+      description: Gets the details of a specific model.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with model details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+    delete:
+      operationId: deleteModel
+      summary: Delete a model
+      description: Deletes a model and all its associated resources.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Long-running operation for model deletion.
+  /projects/{projectId}/locations/{location}/models/{modelId}:predict:
+    post:
+      operationId: predict
+      summary: Make a prediction
+      description: Performs a prediction using a trained model.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictRequest'
+      responses:
+        '200':
+          description: Successful prediction response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictResponse'
+components:
+  schemas:
+    Dataset:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        exampleCount:
+          type: integer
+        createTime:
+          type: string
+        updateTime:
+          type: string
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        datasetId:
+          type: string
+        createTime:
+          type: string
+        updateTime:
+          type: string
+        deploymentState:
+          type: string
+          enum:
+            - DEPLOYMENT_STATE_UNSPECIFIED
+            - DEPLOYED
+            - UNDEPLOYED
+    PredictRequest:
+      type: object
+      required:
+        - payload
+      properties:
+        payload:
+          type: object
+          properties:
+            textSnippet:
+              type: object
+              properties:
+                content:
+                  type: string
+                mimeType:
+                  type: string
+            image:
+              type: object
+              properties:
+                imageBytes:
+                  type: string
+        params:
+          type: object
+          additionalProperties:
+            type: string
+    PredictResponse:
+      type: object
+      properties:
+        payload:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              classification:
+                type: object
+                properties:
+                  score:
+                    type: number
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
