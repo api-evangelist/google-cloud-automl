@@ -15,9 +15,9 @@ type: Index
 tags:
   - AutoML
   - Custom Models
+  - Google Cloud
   - Machine Learning
   - Training
-  - Google Cloud
 apis:
   - name: Google Cloud AutoML API
     description: >-

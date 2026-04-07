@@ -39,6 +39,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Dataset'
+      tags:
+        - Projects
     post:
       operationId: createDataset
       summary: Google Cloud AutoML Create a dataset
@@ -67,6 +69,8 @@ paths:
             application/json:
               schema:
                 type: object
+      tags:
+        - Projects
   /projects/{projectId}/locations/{location}/models:
     get:
       operationId: listModels
@@ -95,6 +99,8 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Model'
+      tags:
+        - Projects
     post:
       operationId: createModel
       summary: Google Cloud AutoML Create a model
@@ -123,6 +129,8 @@ paths:
             application/json:
               schema:
                 type: object
+      tags:
+        - Projects
   /projects/{projectId}/locations/{location}/models/{modelId}:
     get:
       operationId: getModel
@@ -151,6 +159,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Model'
+      tags:
+        - Projects
     delete:
       operationId: deleteModel
       summary: Google Cloud AutoML Delete a model
@@ -174,6 +184,8 @@ paths:
       responses:
         '200':
           description: Long-running operation for model deletion.
+      tags:
+        - Projects
   /projects/{projectId}/locations/{location}/models/{modelId}:predict:
     post:
       operationId: predict
@@ -208,6 +220,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PredictResponse'
+      tags:
+        - Projects
 components:
   schemas:
     Dataset:
@@ -287,3 +301,5 @@ components:
           type: object
           additionalProperties:
             type: string
+tags:
+  - name: Projects
