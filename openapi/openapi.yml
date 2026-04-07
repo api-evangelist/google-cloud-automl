@@ -14,7 +14,7 @@ paths:
   /projects/{projectId}/locations/{location}/datasets:
     get:
       operationId: listDatasets
-      summary: List datasets
+      summary: Google Cloud AutoML List datasets
       description: Lists all datasets in the specified project and location.
       parameters:
         - name: projectId
@@ -41,7 +41,7 @@ paths:
                       $ref: '#/components/schemas/Dataset'
     post:
       operationId: createDataset
-      summary: Create a dataset
+      summary: Google Cloud AutoML Create a dataset
       description: Creates a new dataset for model training.
       parameters:
         - name: projectId
@@ -70,7 +70,7 @@ paths:
   /projects/{projectId}/locations/{location}/models:
     get:
       operationId: listModels
-      summary: List models
+      summary: Google Cloud AutoML List models
       description: Lists all models in the specified project and location.
       parameters:
         - name: projectId
@@ -97,7 +97,7 @@ paths:
                       $ref: '#/components/schemas/Model'
     post:
       operationId: createModel
-      summary: Create a model
+      summary: Google Cloud AutoML Create a model
       description: Creates and trains a new custom model.
       parameters:
         - name: projectId
@@ -126,7 +126,7 @@ paths:
   /projects/{projectId}/locations/{location}/models/{modelId}:
     get:
       operationId: getModel
-      summary: Get a model
+      summary: Google Cloud AutoML Get a model
       description: Gets the details of a specific model.
       parameters:
         - name: projectId
@@ -153,7 +153,7 @@ paths:
                 $ref: '#/components/schemas/Model'
     delete:
       operationId: deleteModel
-      summary: Delete a model
+      summary: Google Cloud AutoML Delete a model
       description: Deletes a model and all its associated resources.
       parameters:
         - name: projectId
@@ -177,7 +177,7 @@ paths:
   /projects/{projectId}/locations/{location}/models/{modelId}:predict:
     post:
       operationId: predict
-      summary: Make a prediction
+      summary: Google Cloud AutoML Make a prediction
       description: Performs a prediction using a trained model.
       parameters:
         - name: projectId
