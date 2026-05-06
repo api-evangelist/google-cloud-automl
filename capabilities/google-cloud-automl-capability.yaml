@@ -1,0 +1,437 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud AutoML API
+  description: Trains and deploys custom machine learning models using Google's AutoML technology with transfer learning and
+    neural architecture search.
+  tags:
+  - Google
+  - Cloud
+  - Automl
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-automl
+    baseUri: https://automl.googleapis.com/v1
+    description: Google Cloud AutoML API HTTP API.
+    resources:
+    - name: projects-projectid-locations-location-datasets
+      path: /projects/{projectId}/locations/{location}/datasets
+      operations:
+      - name: listdatasets
+        method: GET
+        description: Google Cloud AutoML List datasets
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdataset
+        method: POST
+        description: Google Cloud AutoML Create a dataset
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-models
+      path: /projects/{projectId}/locations/{location}/models
+      operations:
+      - name: listmodels
+        method: GET
+        description: Google Cloud AutoML List models
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createmodel
+        method: POST
+        description: Google Cloud AutoML Create a model
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-models-mod
+      path: /projects/{projectId}/locations/{location}/models/{modelId}
+      operations:
+      - name: getmodel
+        method: GET
+        description: Google Cloud AutoML Get a model
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: modelId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemodel
+        method: DELETE
+        description: Google Cloud AutoML Delete a model
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: modelId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-models-mod
+      path: /projects/{projectId}/locations/{location}/models/{modelId}:predict
+      operations:
+      - name: predict
+        method: POST
+        description: Google Cloud AutoML Make a prediction
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: modelId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-automl-rest
+    description: REST adapter for Google Cloud AutoML API.
+    resources:
+    - path: /projects/{projectId}/locations/{location}/datasets
+      name: listdatasets
+      operations:
+      - method: GET
+        name: listdatasets
+        description: Google Cloud AutoML List datasets
+        call: google-cloud-automl.listdatasets
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/datasets
+      name: createdataset
+      operations:
+      - method: POST
+        name: createdataset
+        description: Google Cloud AutoML Create a dataset
+        call: google-cloud-automl.createdataset
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/models
+      name: listmodels
+      operations:
+      - method: GET
+        name: listmodels
+        description: Google Cloud AutoML List models
+        call: google-cloud-automl.listmodels
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/models
+      name: createmodel
+      operations:
+      - method: POST
+        name: createmodel
+        description: Google Cloud AutoML Create a model
+        call: google-cloud-automl.createmodel
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/models/{modelId}
+      name: getmodel
+      operations:
+      - method: GET
+        name: getmodel
+        description: Google Cloud AutoML Get a model
+        call: google-cloud-automl.getmodel
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          modelId: rest.modelId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/models/{modelId}
+      name: deletemodel
+      operations:
+      - method: DELETE
+        name: deletemodel
+        description: Google Cloud AutoML Delete a model
+        call: google-cloud-automl.deletemodel
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          modelId: rest.modelId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/models/{modelId}:predict
+      name: predict
+      operations:
+      - method: POST
+        name: predict
+        description: Google Cloud AutoML Make a prediction
+        call: google-cloud-automl.predict
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          modelId: rest.modelId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-automl-mcp
+    transport: http
+    description: MCP adapter for Google Cloud AutoML API for AI agent use.
+    tools:
+    - name: listdatasets
+      description: Google Cloud AutoML List datasets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-automl.listdatasets
+      with:
+        projectId: tools.projectId
+        location: tools.location
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createdataset
+      description: Google Cloud AutoML Create a dataset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-automl.createdataset
+      with:
+        projectId: tools.projectId
+        location: tools.location
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listmodels
+      description: Google Cloud AutoML List models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-automl.listmodels
+      with:
+        projectId: tools.projectId
+        location: tools.location
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createmodel
+      description: Google Cloud AutoML Create a model
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-automl.createmodel
+      with:
+        projectId: tools.projectId
+        location: tools.location
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmodel
+      description: Google Cloud AutoML Get a model
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-automl.getmodel
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        modelId: tools.modelId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: modelId
+        type: string
+        description: modelId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemodel
+      description: Google Cloud AutoML Delete a model
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-automl.deletemodel
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        modelId: tools.modelId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: modelId
+        type: string
+        description: modelId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: predict
+      description: Google Cloud AutoML Make a prediction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-automl.predict
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        modelId: tools.modelId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: modelId
+        type: string
+        description: modelId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
