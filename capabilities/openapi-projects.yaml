@@ -1,28 +1,35 @@
 naftiko: 1.0.0-alpha2
 info:
-  label: Google Cloud AutoML API
-  description: Trains and deploys custom machine learning models using Google's AutoML technology with transfer learning and
-    neural architecture search.
+  label: Google Cloud AutoML API — Projects
+  description: 'Google Cloud AutoML API — Projects. 7 operations. Lead operation: Google Cloud AutoML List datasets. Self-contained
+    Naftiko capability covering one Google Cloud Automl business surface.'
   tags:
-  - Google
-  - Cloud
-  - Automl
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Google Cloud Automl
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_AUTOML_API_KEY: GOOGLE_CLOUD_AUTOML_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: google-cloud-automl
+    namespace: openapi-projects
     baseUri: https://automl.googleapis.com/v1
-    description: Google Cloud AutoML API HTTP API.
+    description: Google Cloud AutoML API — Projects business capability. Self-contained, no shared references.
     resources:
-    - name: projects-projectid-locations-location-datasets
+    - name: projects-projectId-locations-location-datasets
       path: /projects/{projectId}/locations/{location}/datasets
       operations:
       - name: listdatasets
         method: GET
         description: Google Cloud AutoML List datasets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -32,14 +39,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createdataset
         method: POST
         description: Google Cloud AutoML Create a dataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -49,17 +56,22 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: projects-projectid-locations-location-models
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-locations-location-models
       path: /projects/{projectId}/locations/{location}/models
       operations:
       - name: listmodels
         method: GET
         description: Google Cloud AutoML List models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -69,14 +81,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createmodel
         method: POST
         description: Google Cloud AutoML Create a model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -86,17 +98,22 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: projects-projectid-locations-location-models-mod
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-locations-location-models-modelId
       path: /projects/{projectId}/locations/{location}/models/{modelId}
       operations:
       - name: getmodel
         method: GET
         description: Google Cloud AutoML Get a model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -110,14 +127,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: deletemodel
         method: DELETE
         description: Google Cloud AutoML Delete a model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -131,17 +148,17 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: projects-projectid-locations-location-models-mod
+    - name: projects-projectId-locations-location-models-modelId}:predict
       path: /projects/{projectId}/locations/{location}/models/{modelId}:predict
       operations:
       - name: predict
         method: POST
         description: Google Cloud AutoML Make a prediction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -155,76 +172,76 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
+          description: Request body (JSON).
+          required: true
   exposes:
   - type: rest
+    namespace: openapi-projects-rest
     port: 8080
-    namespace: google-cloud-automl-rest
-    description: REST adapter for Google Cloud AutoML API.
+    description: REST adapter for Google Cloud AutoML API — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
     resources:
-    - path: /projects/{projectId}/locations/{location}/datasets
-      name: listdatasets
+    - path: /v1/projects/{projectid}/locations/{location}/datasets
+      name: projects-projectid-locations-location-datasets
+      description: REST surface for projects-projectId-locations-location-datasets.
       operations:
       - method: GET
         name: listdatasets
         description: Google Cloud AutoML List datasets
-        call: google-cloud-automl.listdatasets
+        call: openapi-projects.listdatasets
         with:
           projectId: rest.projectId
           location: rest.location
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/datasets
-      name: createdataset
-      operations:
       - method: POST
         name: createdataset
         description: Google Cloud AutoML Create a dataset
-        call: google-cloud-automl.createdataset
+        call: openapi-projects.createdataset
         with:
           projectId: rest.projectId
           location: rest.location
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/models
-      name: listmodels
+    - path: /v1/projects/{projectid}/locations/{location}/models
+      name: projects-projectid-locations-location-models
+      description: REST surface for projects-projectId-locations-location-models.
       operations:
       - method: GET
         name: listmodels
         description: Google Cloud AutoML List models
-        call: google-cloud-automl.listmodels
+        call: openapi-projects.listmodels
         with:
           projectId: rest.projectId
           location: rest.location
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/models
-      name: createmodel
-      operations:
       - method: POST
         name: createmodel
         description: Google Cloud AutoML Create a model
-        call: google-cloud-automl.createmodel
+        call: openapi-projects.createmodel
         with:
           projectId: rest.projectId
           location: rest.location
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/models/{modelId}
-      name: getmodel
+    - path: /v1/projects/{projectid}/locations/{location}/models/{modelid}
+      name: projects-projectid-locations-location-models-modelid
+      description: REST surface for projects-projectId-locations-location-models-modelId.
       operations:
       - method: GET
         name: getmodel
         description: Google Cloud AutoML Get a model
-        call: google-cloud-automl.getmodel
+        call: openapi-projects.getmodel
         with:
           projectId: rest.projectId
           location: rest.location
@@ -232,13 +249,10 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/models/{modelId}
-      name: deletemodel
-      operations:
       - method: DELETE
         name: deletemodel
         description: Google Cloud AutoML Delete a model
-        call: google-cloud-automl.deletemodel
+        call: openapi-projects.deletemodel
         with:
           projectId: rest.projectId
           location: rest.location
@@ -246,192 +260,123 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/locations/{location}/models/{modelId}:predict
-      name: predict
+    - path: /v1/projects/{projectid}/locations/{location}/models/modelid-predict
+      name: projects-projectid-locations-location-models-modelid-predict
+      description: REST surface for projects-projectId-locations-location-models-modelId}:predict.
       operations:
       - method: POST
         name: predict
         description: Google Cloud AutoML Make a prediction
-        call: google-cloud-automl.predict
+        call: openapi-projects.predict
         with:
           projectId: rest.projectId
           location: rest.location
           modelId: rest.modelId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: openapi-projects-mcp
     port: 9090
-    namespace: google-cloud-automl-mcp
     transport: http
-    description: MCP adapter for Google Cloud AutoML API for AI agent use.
+    description: MCP adapter for Google Cloud AutoML API — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
     tools:
-    - name: listdatasets
+    - name: google-cloud-automl-list-datasets
       description: Google Cloud AutoML List datasets
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-automl.listdatasets
+      call: openapi-projects.listdatasets
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createdataset
+    - name: google-cloud-automl-create-dataset
       description: Google Cloud AutoML Create a dataset
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-automl.createdataset
+      call: openapi-projects.createdataset
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: listmodels
+    - name: google-cloud-automl-list-models
       description: Google Cloud AutoML List models
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-automl.listmodels
+      call: openapi-projects.listmodels
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createmodel
+    - name: google-cloud-automl-create-model
       description: Google Cloud AutoML Create a model
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-automl.createmodel
+      call: openapi-projects.createmodel
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getmodel
+    - name: google-cloud-automl-get-model
       description: Google Cloud AutoML Get a model
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-automl.getmodel
+      call: openapi-projects.getmodel
       with:
         projectId: tools.projectId
         location: tools.location
         modelId: tools.modelId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: modelId
-        type: string
-        description: modelId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletemodel
+    - name: google-cloud-automl-delete-model
       description: Google Cloud AutoML Delete a model
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: google-cloud-automl.deletemodel
+      call: openapi-projects.deletemodel
       with:
         projectId: tools.projectId
         location: tools.location
         modelId: tools.modelId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: modelId
-        type: string
-        description: modelId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: predict
+    - name: google-cloud-automl-make-prediction
       description: Google Cloud AutoML Make a prediction
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-automl.predict
+      call: openapi-projects.predict
       with:
         projectId: tools.projectId
         location: tools.location
         modelId: tools.modelId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: modelId
-        type: string
-        description: modelId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
