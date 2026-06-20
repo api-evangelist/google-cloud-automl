@@ -4,7 +4,7 @@ description: >-
   Google Cloud AutoML enables developers with limited machine learning expertise to train high-quality custom models. It
   provides a suite of products for training custom ML models for translation, natural language, vision, video
   intelligence, and tabular data using transfer learning and neural architecture search.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-automl/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
