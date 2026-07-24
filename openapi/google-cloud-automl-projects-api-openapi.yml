@@ -1,15 +1,15 @@
 openapi: 3.1.0
 info:
-  title: Google Cloud AutoML API
-  description: >-
-    Trains and deploys custom machine learning models using Google's AutoML
-    technology with transfer learning and neural architecture search.
+  title: Google Cloud AutoML Projects API
+  description: Trains and deploys custom machine learning models using Google's AutoML technology with transfer learning and neural architecture search.
   version: v1
   contact:
     name: Google Cloud
     url: https://cloud.google.com/automl
 servers:
-  - url: https://automl.googleapis.com/v1
+- url: https://automl.googleapis.com/v1
+tags:
+- name: Projects
 paths:
   /projects/{projectId}/locations/{location}/datasets:
     get:
@@ -17,16 +17,16 @@ paths:
       summary: Google Cloud AutoML List datasets
       description: Lists all datasets in the specified project and location.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with list of datasets.
@@ -40,22 +40,22 @@ paths:
                     items:
                       $ref: '#/components/schemas/Dataset'
       tags:
-        - Projects
+      - Projects
     post:
       operationId: createDataset
       summary: Google Cloud AutoML Create a dataset
       description: Creates a new dataset for model training.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -70,23 +70,23 @@ paths:
               schema:
                 type: object
       tags:
-        - Projects
+      - Projects
   /projects/{projectId}/locations/{location}/models:
     get:
       operationId: listModels
       summary: Google Cloud AutoML List models
       description: Lists all models in the specified project and location.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with list of models.
@@ -100,22 +100,22 @@ paths:
                     items:
                       $ref: '#/components/schemas/Model'
       tags:
-        - Projects
+      - Projects
     post:
       operationId: createModel
       summary: Google Cloud AutoML Create a model
       description: Creates and trains a new custom model.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -130,28 +130,28 @@ paths:
               schema:
                 type: object
       tags:
-        - Projects
+      - Projects
   /projects/{projectId}/locations/{location}/models/{modelId}:
     get:
       operationId: getModel
       summary: Google Cloud AutoML Get a model
       description: Gets the details of a specific model.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: modelId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with model details.
@@ -160,53 +160,53 @@ paths:
               schema:
                 $ref: '#/components/schemas/Model'
       tags:
-        - Projects
+      - Projects
     delete:
       operationId: deleteModel
       summary: Google Cloud AutoML Delete a model
       description: Deletes a model and all its associated resources.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: modelId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Long-running operation for model deletion.
       tags:
-        - Projects
+      - Projects
   /projects/{projectId}/locations/{location}/models/{modelId}:predict:
     post:
       operationId: predict
       summary: Google Cloud AutoML Make a prediction
       description: Performs a prediction using a trained model.
       parameters:
-        - name: projectId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: location
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: modelId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -221,47 +221,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/PredictResponse'
       tags:
-        - Projects
+      - Projects
 components:
   schemas:
-    Dataset:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        description:
-          type: string
-        exampleCount:
-          type: integer
-        createTime:
-          type: string
-        updateTime:
-          type: string
-    Model:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        datasetId:
-          type: string
-        createTime:
-          type: string
-        updateTime:
-          type: string
-        deploymentState:
-          type: string
-          enum:
-            - DEPLOYMENT_STATE_UNSPECIFIED
-            - DEPLOYED
-            - UNDEPLOYED
     PredictRequest:
       type: object
       required:
-        - payload
+      - payload
       properties:
         payload:
           type: object
@@ -282,6 +248,40 @@ components:
           type: object
           additionalProperties:
             type: string
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        datasetId:
+          type: string
+        createTime:
+          type: string
+        updateTime:
+          type: string
+        deploymentState:
+          type: string
+          enum:
+          - DEPLOYMENT_STATE_UNSPECIFIED
+          - DEPLOYED
+          - UNDEPLOYED
+    Dataset:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        exampleCount:
+          type: integer
+        createTime:
+          type: string
+        updateTime:
+          type: string
     PredictResponse:
       type: object
       properties:
@@ -301,5 +301,3 @@ components:
           type: object
           additionalProperties:
             type: string
-tags:
-  - name: Projects
