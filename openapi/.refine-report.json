@@ -1,0 +1,14 @@
+{
+  "provider": "google-cloud-automl",
+  "sources": [
+    "google-cloud-automl-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-automl-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

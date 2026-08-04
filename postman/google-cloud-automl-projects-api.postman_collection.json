@@ -1,0 +1,875 @@
+{
+  "info": {
+    "_postman_id": "98a10dea-97df-4312-b7e2-698b73140fae",
+    "name": "Google Cloud AutoML Projects API",
+    "description": "Trains and deploys custom machine learning models using Google's AutoML technology with transfer learning and neural architecture search.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:56.000Z",
+    "updatedAt": "2026-07-28T01:45:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-98a10dea-97df-4312-b7e2-698b73140fae"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "datasets",
+                      "item": [
+                        {
+                          "name": "Google Cloud AutoML List datasets",
+                          "id": "f86d26e0-906a-4223-9112-a5b1e30bbde5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/datasets",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "datasets"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4c43526b-08f5-4912-b6f6-6d13a738ce9f",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "c4f70c4a-1624-4a95-b66d-f77d13d96674",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists all datasets in the specified project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "b8bcd33f-3a9d-42c5-a5b5-423840374970",
+                              "name": "Successful response with list of datasets.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/datasets",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "datasets"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"datasets\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"exampleCount\": \"<integer>\",\n      \"createTime\": \"<string>\",\n      \"updateTime\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"exampleCount\": \"<integer>\",\n      \"createTime\": \"<string>\",\n      \"updateTime\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-b8bcd33f-3a9d-42c5-a5b5-423840374970"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-f86d26e0-906a-4223-9112-a5b1e30bbde5"
+                        },
+                        {
+                          "name": "Google Cloud AutoML Create a dataset",
+                          "id": "f4a784f8-c96a-4121-881f-8c4e0183f5ee",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exampleCount\": \"<integer>\",\n  \"createTime\": \"<string>\",\n  \"updateTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/datasets",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "datasets"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "efec1f14-b25f-4259-a171-d8a126644d08",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "135c7cd2-0d4b-451c-8581-ea1598be8228",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new dataset for model training."
+                          },
+                          "response": [
+                            {
+                              "id": "39e70022-5a72-486b-8b6f-a9423fd5172f",
+                              "name": "Long-running operation for dataset creation.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exampleCount\": \"<integer>\",\n  \"createTime\": \"<string>\",\n  \"updateTime\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/datasets",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "datasets"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-39e70022-5a72-486b-8b6f-a9423fd5172f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-f4a784f8-c96a-4121-881f-8c4e0183f5ee"
+                        }
+                      ],
+                      "id": "a01560dd-8c36-47b0-84c9-7b9c79f23840",
+                      "createdAt": "2026-07-28T01:45:56.000Z",
+                      "updatedAt": "2026-07-28T01:45:56.000Z",
+                      "uid": "35240-a01560dd-8c36-47b0-84c9-7b9c79f23840"
+                    },
+                    {
+                      "name": "models",
+                      "item": [
+                        {
+                          "name": "{modelId}",
+                          "item": [
+                            {
+                              "name": "Google Cloud AutoML Get a model",
+                              "id": "80bcdafa-a6c0-4221-8bfd-e43cb94eb0d4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/:modelId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "models",
+                                    ":modelId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "489ed592-9e6c-4ebf-8133-3b13dfce945f",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "7d3b1b2e-d301-46e9-a47a-75cfb124d34d",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "aea3dc87-b910-4768-95fe-1d9393e44aa2",
+                                      "key": "modelId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the details of a specific model."
+                              },
+                              "response": [
+                                {
+                                  "id": "9b3fcb8c-2345-4087-999b-a07dcee848b5",
+                                  "name": "Successful response with model details.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/:modelId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "models",
+                                        ":modelId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "modelId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"datasetId\": \"<string>\",\n  \"createTime\": \"<string>\",\n  \"updateTime\": \"<string>\",\n  \"deploymentState\": \"DEPLOYMENT_STATE_UNSPECIFIED\"\n}",
+                                  "createdAt": "2026-07-28T01:45:56.000Z",
+                                  "updatedAt": "2026-07-28T01:45:56.000Z",
+                                  "uid": "35240-9b3fcb8c-2345-4087-999b-a07dcee848b5"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-80bcdafa-a6c0-4221-8bfd-e43cb94eb0d4"
+                            },
+                            {
+                              "name": "Google Cloud AutoML Delete a model",
+                              "id": "36654630-3e80-4c44-9793-f7a4ba3b0605",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/:modelId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "models",
+                                    ":modelId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "152f01c2-6557-4b90-991a-8d285a1de250",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "0d96a8fd-9221-4ca4-9878-1be1a269e13d",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "42996d9e-dc91-4fbc-a7c7-5c0470f4c675",
+                                      "key": "modelId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes a model and all its associated resources."
+                              },
+                              "response": [
+                                {
+                                  "id": "d9ada74e-bcdf-4046-9076-9375cbeab430",
+                                  "name": "Long-running operation for model deletion.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/:modelId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "models",
+                                        ":modelId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "modelId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:56.000Z",
+                                  "updatedAt": "2026-07-28T01:45:56.000Z",
+                                  "uid": "35240-d9ada74e-bcdf-4046-9076-9375cbeab430"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-36654630-3e80-4c44-9793-f7a4ba3b0605"
+                            }
+                          ],
+                          "id": "41a09256-ed52-4c4c-9ac0-12cb3678c7ef",
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-41a09256-ed52-4c4c-9ac0-12cb3678c7ef"
+                        },
+                        {
+                          "name": "{modelId}:predict",
+                          "item": [
+                            {
+                              "name": "Google Cloud AutoML Make a prediction",
+                              "id": "863c905a-d794-4c34-a8c9-242c318541bb",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"payload\": {\n    \"textSnippet\": {\n      \"content\": \"<string>\",\n      \"mimeType\": \"<string>\"\n    },\n    \"image\": {\n      \"imageBytes\": \"<string>\"\n    }\n  },\n  \"params\": {\n    \"Lorem_2ee\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/{{modelId}}:predict",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "models",
+                                    "{{modelId}}:predict"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d4792265-0b26-4560-a38e-83749284af92",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "27c7a0b5-6288-4068-bf84-c21dae980b91",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Performs a prediction using a trained model."
+                              },
+                              "response": [
+                                {
+                                  "id": "ef169cbe-c4f0-4f9f-a688-584e39a962a9",
+                                  "name": "Successful prediction response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"payload\": {\n    \"textSnippet\": {\n      \"content\": \"<string>\",\n      \"mimeType\": \"<string>\"\n    },\n    \"image\": {\n      \"imageBytes\": \"<string>\"\n    }\n  },\n  \"params\": {\n    \"Lorem_2ee\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models/{{modelId}}:predict",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "models",
+                                        "{{modelId}}:predict"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"payload\": [\n    {\n      \"displayName\": \"<string>\",\n      \"classification\": {\n        \"score\": \"<number>\"\n      }\n    },\n    {\n      \"displayName\": \"<string>\",\n      \"classification\": {\n        \"score\": \"<number>\"\n      }\n    }\n  ],\n  \"metadata\": {\n    \"minim9b8\": \"<string>\",\n    \"cupidatat8\": \"<string>\",\n    \"enim_9a\": \"<string>\",\n    \"Ut1\": \"<string>\",\n    \"id_f22\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:45:56.000Z",
+                                  "updatedAt": "2026-07-28T01:45:56.000Z",
+                                  "uid": "35240-ef169cbe-c4f0-4f9f-a688-584e39a962a9"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-863c905a-d794-4c34-a8c9-242c318541bb"
+                            }
+                          ],
+                          "id": "fbcf60ad-bd88-47b2-9c6b-6c578ae4b409",
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-fbcf60ad-bd88-47b2-9c6b-6c578ae4b409"
+                        },
+                        {
+                          "name": "Google Cloud AutoML List models",
+                          "id": "9ccc360c-b5f7-40cf-b6ab-009eb67cb479",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "models"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ccab9736-3c52-4796-abed-0dd7cc1370cc",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "583c463b-475a-4ecf-925e-8bc3a46c25d8",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists all models in the specified project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "5cb08f0e-f107-48f5-8941-ab60e327112e",
+                              "name": "Successful response with list of models.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "models"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"model\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"createTime\": \"<string>\",\n      \"updateTime\": \"<string>\",\n      \"deploymentState\": \"UNDEPLOYED\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"createTime\": \"<string>\",\n      \"updateTime\": \"<string>\",\n      \"deploymentState\": \"DEPLOYMENT_STATE_UNSPECIFIED\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-5cb08f0e-f107-48f5-8941-ab60e327112e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-9ccc360c-b5f7-40cf-b6ab-009eb67cb479"
+                        },
+                        {
+                          "name": "Google Cloud AutoML Create a model",
+                          "id": "833da985-dafc-49a2-9378-7710cf6dde53",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"datasetId\": \"<string>\",\n  \"createTime\": \"<string>\",\n  \"updateTime\": \"<string>\",\n  \"deploymentState\": \"DEPLOYMENT_STATE_UNSPECIFIED\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "models"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d1769cce-a280-4a3e-9857-8ab6a1213b26",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3392ce64-8b74-4daa-9ac4-240aaa631b63",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates and trains a new custom model."
+                          },
+                          "response": [
+                            {
+                              "id": "c1186170-652b-4cfb-afae-6374196c9581",
+                              "name": "Long-running operation for model training.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"datasetId\": \"<string>\",\n  \"createTime\": \"<string>\",\n  \"updateTime\": \"<string>\",\n  \"deploymentState\": \"DEPLOYMENT_STATE_UNSPECIFIED\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/models",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "models"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T01:45:56.000Z",
+                              "updatedAt": "2026-07-28T01:45:56.000Z",
+                              "uid": "35240-c1186170-652b-4cfb-afae-6374196c9581"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:56.000Z",
+                          "updatedAt": "2026-07-28T01:45:56.000Z",
+                          "uid": "35240-833da985-dafc-49a2-9378-7710cf6dde53"
+                        }
+                      ],
+                      "id": "c985b896-e5f5-4b16-863b-d70a24aa41db",
+                      "createdAt": "2026-07-28T01:45:56.000Z",
+                      "updatedAt": "2026-07-28T01:45:56.000Z",
+                      "uid": "35240-c985b896-e5f5-4b16-863b-d70a24aa41db"
+                    }
+                  ],
+                  "id": "aa28e997-b54a-464a-8fd3-0f8e13462f8e",
+                  "createdAt": "2026-07-28T01:45:56.000Z",
+                  "updatedAt": "2026-07-28T01:45:56.000Z",
+                  "uid": "35240-aa28e997-b54a-464a-8fd3-0f8e13462f8e"
+                }
+              ],
+              "id": "43fb954d-03df-4df7-bd04-f37cc00b9d53",
+              "createdAt": "2026-07-28T01:45:56.000Z",
+              "updatedAt": "2026-07-28T01:45:56.000Z",
+              "uid": "35240-43fb954d-03df-4df7-bd04-f37cc00b9d53"
+            }
+          ],
+          "id": "0b9991b0-adc2-48a7-a26d-7c5d37da8e3d",
+          "createdAt": "2026-07-28T01:45:56.000Z",
+          "updatedAt": "2026-07-28T01:45:56.000Z",
+          "uid": "35240-0b9991b0-adc2-48a7-a26d-7c5d37da8e3d"
+        }
+      ],
+      "id": "50178306-d119-4c31-91f7-92f527e758b0",
+      "createdAt": "2026-07-28T01:45:56.000Z",
+      "updatedAt": "2026-07-28T01:45:56.000Z",
+      "uid": "35240-50178306-d119-4c31-91f7-92f527e758b0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://automl.googleapis.com/v1"
+    },
+    {
+      "key": "modelId",
+      "value": "<string>"
+    }
+  ]
+}
