@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud AutoML Projects API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud AutoML List datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all datasets in the specified project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML Create a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new dataset for model training."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/models",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists all models in the specified project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML Create a model",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/models",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and trains a new custom model."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML Get a model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details of a specific model."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML Delete a model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a model and all its associated resources."
+        },
+        {
+          "info": {
+            "name": "Google Cloud AutoML Make a prediction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://automl.googleapis.com/v1/projects/:projectId/locations/:location/models/:modelId:predict",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs a prediction using a trained model."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
