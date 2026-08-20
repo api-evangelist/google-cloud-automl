@@ -26,6 +26,12 @@ tags:
   - AutoML
   - Custom Models
   - Google Cloud
+  - Machine-Learning
+  - Training
+tags_raw:
+  - AutoML
+  - Custom Models
+  - Google Cloud
   - Machine Learning
   - Training
 apis:
@@ -35,6 +41,8 @@ apis:
   humanURL: https://cloud.google.com/automl
   baseURL: https://automl.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
