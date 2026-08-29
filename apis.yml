@@ -70,6 +70,9 @@ apis:
   - type: JSONLD
     url: json-ld/context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/google-cloud-automl-capability-edges.yml
+    name: Google Cloud AutoML Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/google-cloud-automl/overview
   - type: AgenticAccess
