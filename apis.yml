@@ -70,6 +70,8 @@ apis:
   - type: JSONLD
     url: json-ld/context.jsonld
 common:
+  - type: RateLimits
+    url: rate-limits/google-cloud-automl-rate-limits.yml
   - type: Plans
     url: plans/google-cloud-automl-plans-pricing.yml
   - type: Website

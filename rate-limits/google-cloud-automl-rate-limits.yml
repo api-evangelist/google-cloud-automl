@@ -1,92 +1,190 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Google Cloud AutoML
-providerId: google-cloud-automl
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - AutoML
-  - Custom Models
-  - Google Cloud
-  - Machine Learning
-  - Training
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Google Cloud AutoML API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas
+sources:
+- https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: true
+note: Quota page for Gemini Enterprise Agent Platform agents; quotas apply per project per region. Mentions
+  429 Resource Exhausted errors. No rate-limit response headers documented.
+limit_count: 28
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Google Cloud AutoML API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Google Cloud AutoML API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Google Cloud AutoML API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Google Cloud AutoML API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Google Cloud AutoML API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Write requests to Agent Platform resources
+  limit_text: Create, delete, or update Agent Platform resources per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_write_requests
+- name: Non-regional write requests
+  limit_text: Create, delete, or update Agent Platform non-regional (global or multiregional) resources
+    per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_reasoning_engine_service_write_requests
+- name: Session writes
+  limit_text: Create, delete, or update Agent Platform sessions per minute 100
+  limit: 100
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/session_write_requests
+- name: Query or StreamQuery
+  limit_text: Query or StreamQuery Agent Platform per minute 90
+  limit: 90
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_query_requests
+- name: Append session events
+  limit_text: Append event to Agent Platform sessions per minute 300
+  limit: 300
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/session_event_append_requests
+- name: Non-regional session writes
+  limit_text: Create, delete, or update Agent Platform non-regional (global or multiregional) sessions
+    per minute 100
+  limit: 100
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_session_write_requests
+- name: Non-regional session event appends
+  limit_text: Append event to Agent Platform non-regional (global or multiregional) sessions per minute
+    300
+  limit: 300
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_session_event_append_requests
+- name: Max Agent Platform resources
+  limit_text: Maximum number of Agent Platform resources 100
+  limit: 100
+  scope: account
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_entities
+- name: Max non-regional resources
+  limit_text: Maximum number of Agent Platform non-regional (global or multiregional) resources 100
+  limit: 100
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_reasoning_engine_service_entities
+- name: Memory resource writes
+  limit_text: Create, delete, or update Agent Platform memory resources per minute 100
+  limit: 100
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/memory_bank_write_requests
+- name: Memory Bank reads
+  limit_text: Get, list, or retrieve from Agent Platform Memory Bank per minute 300
+  limit: 300
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/memory_bank_read_requests
+- name: Non-regional memory writes
+  limit_text: Create, delete, or update Agent Platform non-regional (global or multiregional) memory resources
+    per minute 100
+  limit: 100
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_memory_bank_write_requests
+- name: Non-regional memory reads
+  limit_text: Get, list, or retrieve from non-regional (global or multiregional) Agent Platform Memory
+    Bank per minute 300
+  limit: 300
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/non_regional_memory_bank_read_requests
+- name: Sandbox execute requests
+  limit_text: Sandbox environment (Code Execution) execute requests per minute 1000
+  limit: 1000
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/sandbox_environment_execute_requests
+- name: Sandbox entities per region
+  limit_text: Sandbox environment (Code Execution) entities per region 1000
+  limit: 1000
+  scope: account
+  endpoint: aiplatform.googleapis.com/sandbox_environment_entities
+- name: Sandbox write requests
+  limit_text: Sandbox environment (Code Execution) write requests per minute 500
+  limit: 500
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/sandbox_environment_write_requests
+- name: A2A post requests
+  limit_text: A2A Agent post requests like sendMessage and cancelTask per minute 60
+  limit: 60
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/a2a_agent_post_requests
+- name: A2A get requests
+  limit_text: A2A Agent get requests like getTask and getCard per minute 600
+  limit: 600
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/a2a_agent_get_requests
+- name: Concurrent bidi connections
+  limit_text: Concurrent live bidirectional connections using the BidiStreamQuery API per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests
+- name: Max revisions per project per region
+  limit_text: Maximum revisions per project per region 6,000
+  limit: 6000
+  scope: account
+  endpoint: aiplatform.googleapis.com/agent_engine_revisions_per_project_per_region
+- name: Max revisions per agent
+  limit_text: Maximum revisions per agent* 950
+  limit: 950
+  scope: account
+  endpoint: aiplatform.googleapis.com/agent_engine_revisions_per_agent
+- name: Express mode max resources
+  limit_text: Maximum number of Agent Platform resources 10
+  limit: 10
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_entities
+- name: Express mode query
+  limit_text: Query or StreamQuery Agent Platform per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_query_requests
+- name: Express mode concurrent bidi
+  limit_text: Concurrent live bidirectional connections using the BidiStreamQuery API per minute 1
+  limit: 1
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests
+- name: Express mode session writes
+  limit_text: Create, delete, or update Agent Platform sessions per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/session_write_requests
+- name: Express mode session event appends
+  limit_text: Append event to Agent Platform sessions per minute 30
+  limit: 30
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/session_event_append_requests
+- name: Express mode memory writes
+  limit_text: Create, delete, or update Agent Platform memory resources per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/memory_bank_write_requests
+- name: Express mode memory reads
+  limit_text: Get, list, or retrieve from Memory Bank per minute 10
+  limit: 10
+  window: minute
+  scope: account
+  plan: Agent Platform Free Tier express mode
+  endpoint: aiplatform.googleapis.com/memory_bank_read_requests
+exceeded_status: 429
