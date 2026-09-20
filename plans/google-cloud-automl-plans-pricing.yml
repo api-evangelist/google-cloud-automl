@@ -11,6 +11,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
 published: true
 note: Product overview page with a summary pricing table; new customers get up to $300 in free credits.
   Detailed pricing is linked elsewhere.
