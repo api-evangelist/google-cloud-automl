@@ -70,6 +70,8 @@ apis:
   - type: JSONLD
     url: json-ld/context.jsonld
 common:
+  - type: Plans
+    url: plans/google-cloud-automl-plans-pricing.yml
   - type: Website
     url: https://www.google.com/
   - type: CapabilityMap
