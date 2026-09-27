@@ -224,21 +224,6 @@ paths:
       - Projects
 components:
   schemas:
-    Dataset:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        description:
-          type: string
-        exampleCount:
-          type: integer
-        createTime:
-          type: string
-        updateTime:
-          type: string
     PredictResponse:
       type: object
       properties:
@@ -258,6 +243,25 @@ components:
           type: object
           additionalProperties:
             type: string
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        datasetId:
+          type: string
+        createTime:
+          type: string
+        updateTime:
+          type: string
+        deploymentState:
+          type: string
+          enum:
+          - DEPLOYMENT_STATE_UNSPECIFIED
+          - DEPLOYED
+          - UNDEPLOYED
     PredictRequest:
       type: object
       required:
@@ -282,22 +286,18 @@ components:
           type: object
           additionalProperties:
             type: string
-    Model:
+    Dataset:
       type: object
       properties:
         name:
           type: string
         displayName:
           type: string
-        datasetId:
+        description:
           type: string
+        exampleCount:
+          type: integer
         createTime:
           type: string
         updateTime:
           type: string
-        deploymentState:
-          type: string
-          enum:
-          - DEPLOYMENT_STATE_UNSPECIFIED
-          - DEPLOYED
-          - UNDEPLOYED

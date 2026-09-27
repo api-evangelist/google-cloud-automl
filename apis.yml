@@ -38,7 +38,7 @@ tags:
   - AutoML
   - Custom Models
   - Google Cloud
-  - Machine-Learning
+  - Machine Learning
   - Training
 tags_raw:
   - AutoML
@@ -46,6 +46,7 @@ tags_raw:
   - Google Cloud
   - Machine Learning
   - Training
+  - Machine-Learning
 apis:
 - aid: google-cloud-automl:google-cloud-automl-projects-api
   name: Google Cloud AutoML Projects API
