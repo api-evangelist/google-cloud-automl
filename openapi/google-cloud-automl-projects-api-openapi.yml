@@ -224,44 +224,6 @@ paths:
       - Projects
 components:
   schemas:
-    PredictResponse:
-      type: object
-      properties:
-        payload:
-          type: array
-          items:
-            type: object
-            properties:
-              displayName:
-                type: string
-              classification:
-                type: object
-                properties:
-                  score:
-                    type: number
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-    Model:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        datasetId:
-          type: string
-        createTime:
-          type: string
-        updateTime:
-          type: string
-        deploymentState:
-          type: string
-          enum:
-          - DEPLOYMENT_STATE_UNSPECIFIED
-          - DEPLOYED
-          - UNDEPLOYED
     PredictRequest:
       type: object
       required:
@@ -286,6 +248,25 @@ components:
           type: object
           additionalProperties:
             type: string
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        datasetId:
+          type: string
+        createTime:
+          type: string
+        updateTime:
+          type: string
+        deploymentState:
+          type: string
+          enum:
+          - DEPLOYMENT_STATE_UNSPECIFIED
+          - DEPLOYED
+          - UNDEPLOYED
     Dataset:
       type: object
       properties:
@@ -301,3 +282,22 @@ components:
           type: string
         updateTime:
           type: string
+    PredictResponse:
+      type: object
+      properties:
+        payload:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              classification:
+                type: object
+                properties:
+                  score:
+                    type: number
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
