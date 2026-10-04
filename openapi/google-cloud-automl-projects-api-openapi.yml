@@ -248,6 +248,21 @@ components:
           type: object
           additionalProperties:
             type: string
+    Dataset:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        exampleCount:
+          type: integer
+        createTime:
+          type: string
+        updateTime:
+          type: string
     Model:
       type: object
       properties:
@@ -267,21 +282,6 @@ components:
           - DEPLOYMENT_STATE_UNSPECIFIED
           - DEPLOYED
           - UNDEPLOYED
-    Dataset:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        description:
-          type: string
-        exampleCount:
-          type: integer
-        createTime:
-          type: string
-        updateTime:
-          type: string
     PredictResponse:
       type: object
       properties:
