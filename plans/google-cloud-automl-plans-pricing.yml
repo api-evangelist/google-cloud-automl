@@ -51,3 +51,64 @@ plans:
 - name: Agent Platform Vector Search
   price_text: Refer to example
   period: none
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - object
+  plans:
+  - name: Imagen model for image generation
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - object
+    periods:
+    - other
+  - name: Text, chat, and code generation
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Custom model training
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Agent Platform notebooks - Compute and storage resources
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Management fees
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Agent Platform Pipelines execution and additional fees
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Agent Platform Vector Search
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
