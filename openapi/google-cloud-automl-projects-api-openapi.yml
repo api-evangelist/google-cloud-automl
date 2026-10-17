@@ -224,6 +224,25 @@ paths:
       - Projects
 components:
   schemas:
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        datasetId:
+          type: string
+        createTime:
+          type: string
+        updateTime:
+          type: string
+        deploymentState:
+          type: string
+          enum:
+          - DEPLOYMENT_STATE_UNSPECIFIED
+          - DEPLOYED
+          - UNDEPLOYED
     PredictRequest:
       type: object
       required:
@@ -263,25 +282,6 @@ components:
           type: string
         updateTime:
           type: string
-    Model:
-      type: object
-      properties:
-        name:
-          type: string
-        displayName:
-          type: string
-        datasetId:
-          type: string
-        createTime:
-          type: string
-        updateTime:
-          type: string
-        deploymentState:
-          type: string
-          enum:
-          - DEPLOYMENT_STATE_UNSPECIFIED
-          - DEPLOYED
-          - UNDEPLOYED
     PredictResponse:
       type: object
       properties:
