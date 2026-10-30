@@ -1,4 +1,4 @@
-# Google Cloud AutoML (google-cloud-automl)
+# Google Cloud AutoML
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,67 +66,144 @@
 
 Google Cloud AutoML enables developers with limited machine learning expertise to train high-quality custom models. It provides a suite of products for training custom ML models for translation, natural language, vision, video intelligence, and tabular data using transfer learning and neural architecture search.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-cloud-automl/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-cloud-automl/refs/heads/main/apis.yml)
+**Areas:** AutoML · Custom Models · Google Cloud · Machine Learning · Training · Model Training
 
-## Scope
+## Google Cloud AutoML on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Cloud AutoML is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-cloud-automl/](https://apis.io/providers/google-cloud-automl/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- AutoML
-- Custom Models
-- Google Cloud
-- Machine Learning
-- Training
+- [Google Cloud AutoML Projects API](https://apis.io/apis/google-cloud-automl/google-cloud-automl-projects-api/) — The Projects API from Google Cloud AutoML — 4 operation(s) for projects.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Google Cloud AutoML API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Trains and deploys custom machine learning models for translation, natural language, vision, and tabular data using Google's transfer learning and AutoML technology.
+- [Google Cloud Automl Agentic Access](https://apis.io/agentic-access/google-cloud-automl/google-cloud-automl-agentic-access/)
 
-- **Human URL:** [https://cloud.google.com/automl](https://cloud.google.com/automl)
-- **Base URL:** `https://automl.googleapis.com`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- AutoML
-- Custom Models
-- Machine Learning
+- [AutoML Model](https://apis.io/schemas/google-cloud-automl/model/)
 
-#### Properties
+#### JSON-LD (1)
 
+Linked-data contexts for the provider's vocabulary.
+
+- [context Context](https://apis.io/jsonld/google-cloud-automl/context/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Google Cloud AutoML Projects API](https://apis.io/collections/google-cloud-automl/open-google-cloud-automl-projects-api/)
+- [Google Cloud AutoML API](https://apis.io/collections/google-cloud-automl/open-openapi/)
+- [Google Cloud AutoML Projects API](https://apis.io/collections/google-cloud-automl/postman-google-cloud-automl-projects-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Cloud AutoML — jsonschema rules](https://apis.io/rules/google-cloud-automl/google-cloud-automl-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Cloud Automl Domain Security](https://apis.io/security/google-cloud-automl/google-cloud-automl-domain-security/)
+- [Google Cloud Automl Vulnerability Disclosure](https://apis.io/security/google-cloud-automl/google-cloud-automl-vulnerability-disclosure/)
+
+#### Plans and pricing (2)
+
+Published plans, tiers and prices.
+
+- [Google Cloud Automl Plans Pricing](https://apis.io/plans/google-cloud-automl/google-cloud-automl-plans-pricing/)
+- [Google Cloud Automl Price Estimates](https://apis.io/plans/google-cloud-automl/google-cloud-automl-price-estimates/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Cloud Automl Rate Limits](https://apis.io/rate-limits/google-cloud-automl/google-cloud-automl-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Cloud Automl Finops](https://apis.io/finops/google-cloud-automl/google-cloud-automl-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
 - [Documentation](https://cloud.google.com/automl/docs/reference/rest)
-- [OpenAPI](openapi/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/openapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/openapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://cloud.google.com/automl/docs/reference/rest#authentication)
-- [Getting Started](https://cloud.google.com/automl/docs)
-- [JSON Schema](json-schema/model.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/googleapis)
-- [Portal](https://cloud.google.com/automl)
-- [Getting Started](https://cloud.google.com/automl/docs)
-- [Documentation](https://cloud.google.com/automl/docs/reference/rest)
-- [Authentication](https://cloud.google.com/docs/authentication)
+- [Getting started](https://cloud.google.com/automl/docs)
 - [Pricing](https://cloud.google.com/automl/pricing)
-- [Terms of Service](https://cloud.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [Status Page](https://status.cloud.google.com/)
 - [Support](https://cloud.google.com/automl/docs/support)
-- [JSON-LD](json-ld/context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://cloud.google.com/marketplace)
+- [Blog](https://docs.cloud.google.com/feeds/automl-natural-language-release-notes.xml)
+- [Terms of service](https://cloud.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/googleapis)
+- [Status](https://status.cloud.google.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 53.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 60.5 |
+| Developer ergonomics | 51.2 |
+| Access clarity | 63.2 |
+
+**Agent readiness 21.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 28.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-cloud-automl/](https://apis.io/providers/google-cloud-automl/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Cloud AutoML: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-cloud-automl/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
